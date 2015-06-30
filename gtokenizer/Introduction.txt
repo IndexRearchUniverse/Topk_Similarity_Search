@@ -1,0 +1,16 @@
+
+******************************************************************************
+该程序用于处理ppjoin中的qtokenizer程序处理后的数据；
+其主要作用是消除数据集中每一条记录的重复的token值；
+例：通过qtokenizer,将gram设置为3，处理dblp.txt
+    
+    处理过成为:  ./qtokenizer 3 dblp.txt
+
+    生成的3-gram的文件为dblp.txt.3gram.bin
+
+gtokenizer将上述数据集中每一个记录相同的token删除；
+	
+    处理过程为：  ./gtokenizer dblp.txt.3gram.bin dblp.txt.3gram.new.bin
+
+最后生成的数据集为dblp.txt.3gram.new.bin
+******************************************************************************
