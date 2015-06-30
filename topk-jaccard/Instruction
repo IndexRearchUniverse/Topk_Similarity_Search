@@ -1,0 +1,25 @@
+
+该程序为“topk”的源代码实现
+
+使用google的dense_hash_map,移位数为16
+
+执行该程序前需要对代码进行编译：使用make命令
+
+程序执行如下：
+(1) 标准Topk算法：
+	./topk-standard j [topk] [input_binary_file] [maxDepth] > [output_file]
+    其中，“j”表示“jaccard”相似度；“topk”表示要查询的结果的数，“input_binary_file”表示输入文件，“maxDepth”是后缀过滤的深度；“output_file”结果的输出文件(可选)。
+
+(2) 哈希优化Topk算法：
+	./topk-hash j [topk] [input_binary_file] [maxDepth] > [output_file]
+	各个参数的详情参考(1).
+
+(3) 提前结束优化Topk算法：
+	./topk-earlyterm j [topk] [input_binary_file] [maxDepth] [segpart] > [output_file]
+	参数'j'、'topk'、'input_binary_file'、'maxDepth' 、'output_file'的解释详见(1)；参数'segpart'表示要将记录集进行分块处理，segpart为分的块数。
+
+(4) 前缀批处理优化Topk算法：
+	./topk-multilen j [topk] [input_binary_file] [maxDepth] [mulltilen] >> [output_file]
+	'multilen'表示记录中一次前缀事件中处理的最多的Token个数。
+
+程序执行完成后，可取消编译：make clean
